@@ -1,0 +1,905 @@
+/* ==========================================================================
+   Bhāṣāvijñāna — Obsidian Advanced Slides theme
+   Palette drawn from Indian textiles and dyes:
+     indigo (nīli) ground · zari gold border · turmeric (haridrā)
+     kumkum red · peacock teal · palm-leaf parchment
+   Language colour-coding (set per slide with <!-- slide class="lang-skt" -->):
+     lang-skt → turmeric   lang-kan → kumkum   lang-eng → peacock
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Mukta:wght@300;400;600&family=Tiro+Devanagari+Sanskrit&family=Noto+Serif+Kannada:wght@400;600;800&family=Noto+Sans+Kannada:wght@400;600&display=swap");
+
+:root {
+  --indigo-deep: #141840;
+  --indigo: #1d2358;
+  --indigo-soft: #2a3170;
+  --parchment: #f3e8cb;
+  --cream: #f7f0de;
+  --zari: #d9a62e;
+  --turmeric: #f2b01e;
+  --kumkum: #c8312b;
+  --kumkum-light: #f27a6b;
+  --peacock: #1fb5ad;
+  --muted: #b9bdd9;
+
+  --accent: var(--turmeric);
+  --accent-soft: rgba(242, 176, 30, 0.14);
+
+  --font-display: "Fraunces", "Tiro Devanagari Sanskrit", "Noto Serif Kannada", Georgia, serif;
+  --font-body: "Mukta", "Noto Sans Kannada", "Segoe UI", sans-serif;
+  --font-skt: "Tiro Devanagari Sanskrit", "Noto Serif Devanagari", serif;
+  --font-kan: "Noto Serif Kannada", "Noto Sans Kannada", serif;
+
+  /* reveal.js theme hooks */
+  --r-background-color: var(--indigo-deep);
+  --r-main-font: var(--font-body);
+  --r-main-font-size: 32px;
+  --r-main-color: var(--cream);
+  --r-heading-font: var(--font-display);
+  --r-heading-color: var(--cream);
+  --r-heading-text-transform: none;
+  --r-heading-letter-spacing: -0.01em;
+  --r-link-color: var(--turmeric);
+  --r-link-color-hover: var(--cream);
+  --r-selection-background-color: var(--kumkum);
+  --r-selection-color: var(--cream);
+}
+
+/* ---------- Canvas: indigo cloth with a faint bandhani dot weave ---------- */
+.reveal-viewport,
+.reveal {
+  background-color: var(--indigo-deep);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(247, 240, 222, 0.07) 1.5px, transparent 2px),
+    radial-gradient(circle at 50% 50%, rgba(247, 240, 222, 0.04) 1px, transparent 1.5px),
+    linear-gradient(160deg, var(--indigo) 0%, var(--indigo-deep) 70%);
+  background-size: 36px 36px, 36px 36px, 100% 100%;
+  background-position: 0 0, 18px 18px, 0 0;
+}
+
+/* ---------- The one memorable thing: a woven zari border along the foot ---------- */
+.reveal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 16px;
+  z-index: 30;
+  pointer-events: none;
+  border-top: 3px solid var(--zari);
+  background-color: var(--kumkum);
+  background-image:
+    linear-gradient(135deg, var(--zari) 25%, transparent 25%),
+    linear-gradient(225deg, var(--zari) 25%, transparent 25%),
+    linear-gradient(315deg, var(--zari) 25%, transparent 25%),
+    linear-gradient(45deg, var(--zari) 25%, transparent 25%);
+  background-size: 16px 16px;
+  background-position: -8px 0, -8px 0, 0 0, 0 0;
+}
+
+/* ---------- Base layout ---------- */
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  padding: 0 1.2em 1.2em 1.2em;
+  box-sizing: border-box;
+}
+
+.reveal p,
+.reveal li {
+  line-height: 1.5;
+  max-width: 34em;
+}
+
+.reveal ul,
+.reveal ol {
+  margin-left: 1em;
+}
+
+.reveal li+li {
+  margin-top: 0.35em;
+}
+
+.reveal li::marker {
+  color: var(--accent);
+}
+
+.reveal strong {
+  color: var(--turmeric);
+  font-weight: 600;
+}
+
+.reveal em {
+  color: var(--parchment);
+}
+
+.reveal small,
+.reveal .small {
+  font-size: 0.62em;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ---------- Headings ---------- */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em 0;
+}
+
+.reveal h1 {
+  font-size: 2.1em;
+}
+
+.reveal h2 {
+  font-size: 1.55em;
+}
+
+.reveal h3 {
+  font-size: 1.1em;
+  color: var(--parchment);
+  font-weight: 400;
+}
+
+/* Short gold rule under slide titles, like a saree pallu line */
+.reveal h2::after {
+  content: "";
+  display: block;
+  width: 3.2em;
+  height: 4px;
+  margin-top: 0.4em;
+  background: linear-gradient(90deg, var(--zari), var(--kumkum));
+  border-radius: 2px;
+}
+
+/* ---------- Language chips ---------- */
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.82em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.2em 0.9em;
+  margin: 0 0 0.9em 0;
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.tag.skt {
+  --accent: var(--turmeric);
+  --accent-soft: rgba(242, 176, 30, 0.14);
+}
+
+.tag.kan {
+  --accent: var(--kumkum-light);
+  --accent-soft: rgba(242, 122, 107, 0.14);
+}
+
+.tag.eng {
+  --accent: var(--peacock);
+  --accent-soft: rgba(31, 181, 173, 0.14);
+}
+
+/* ---------- Per-language slide accents ---------- */
+.reveal section.lang-skt {
+  --accent: var(--turmeric);
+  --accent-soft: rgba(242, 176, 30, 0.14);
+}
+
+.reveal section.lang-kan {
+  --accent: var(--kumkum-light);
+  --accent-soft: rgba(242, 122, 107, 0.14);
+}
+
+.reveal section.lang-eng {
+  --accent: var(--peacock);
+  --accent-soft: rgba(31, 181, 173, 0.14);
+}
+
+/* ---------- Title slide ---------- */
+.reveal section.title-slide {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.reveal section.title-slide h1 {
+  font-size: 3.1em;
+  font-weight: 800;
+  margin-bottom: 0.1em;
+}
+
+.reveal section.title-slide .script-line {
+  font-family: var(--font-skt);
+  font-size: 1.5em;
+  color: var(--turmeric);
+  margin: 0 0 0.6em 0;
+}
+
+.reveal section.title-slide .subtitle {
+  font-size: 0.95em;
+  color: var(--parchment);
+  max-width: 22em;
+  border-left: 4px solid var(--kumkum);
+  padding-left: 0.9em;
+}
+
+.reveal section.title-slide .byline {
+  margin-top: 1.4em;
+  font-size: 0.6em;
+  color: var(--muted);
+}
+
+/* ---------- Section divider ---------- */
+.reveal section.section-slide {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.reveal section.section-slide h1 {
+  font-size: 2.6em;
+  color: var(--accent);
+}
+
+/* ---------- The headword: big script on example slides ---------- */
+.reveal .word {
+  font-size: 3.6em;
+  line-height: 1.05;
+  margin: 0 0 0.1em 0;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.reveal .word::after {
+  display: none;
+}
+
+.reveal .word.skt {
+  font-family: var(--font-skt);
+  font-weight: 400;
+}
+
+.reveal .word.kan {
+  font-family: var(--font-kan);
+  font-weight: 800;
+}
+
+.reveal .word.eng {
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.reveal .translit {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9em;
+  color: var(--parchment);
+  margin: 0 0 0.9em 0;
+}
+
+/* ---------- Meaning shift: narrow origin → wide use ---------- */
+.shift {
+  display: flex;
+  align-items: stretch;
+  gap: 0.6em;
+  margin: 0.4em 0 0.8em 0;
+}
+
+.shift .from,
+.shift .to {
+  flex: 1;
+  padding: 0.7em 1em;
+  border-radius: 10px;
+  font-size: 0.85em;
+  line-height: 1.35;
+}
+
+.shift .from {
+  flex: 0.8;
+  background: rgba(247, 240, 222, 0.07);
+  border-left: 5px solid var(--muted);
+  color: var(--cream);
+}
+
+.shift .to {
+  flex: 1.25;
+  background: var(--accent-soft);
+  border: 2px solid var(--accent);
+  color: var(--cream);
+}
+
+.shift .from b,
+.shift .to b {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.2em;
+}
+
+.shift .from b {
+  color: var(--muted);
+}
+
+/* Arrow between the two boxes */
+.shift .arrow {
+  align-self: center;
+  position: relative;
+  width: 56px;
+  height: 4px;
+  background: var(--accent);
+  flex: none;
+}
+
+.shift .arrow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  border-left: 14px solid var(--accent);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* ---------- Blockquote / use-case cards ---------- */
+.reveal blockquote {
+  width: 100%;
+  margin: 0.5em 0;
+  padding: 0.6em 1em;
+  background: rgba(247, 240, 222, 0.06);
+  border-left: 5px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  box-shadow: none;
+  font-style: normal;
+  font-size: 0.82em;
+}
+
+.reveal blockquote p {
+  margin: 0.2em 0;
+  max-width: none;
+}
+
+/* ---------- Script spans used inline ---------- */
+.skt {
+  font-family: var(--font-skt);
+}
+
+.kan {
+  font-family: var(--font-kan);
+}
+
+.reveal .skt-text {
+  font-family: var(--font-skt);
+  color: var(--turmeric);
+}
+
+.reveal .kan-text {
+  font-family: var(--font-kan);
+  color: var(--kumkum-light);
+}
+
+.reveal .eng-text {
+  font-family: var(--font-display);
+  color: var(--peacock);
+}
+
+/* ---------- Tables: palm-leaf manuscript ---------- */
+.reveal table {
+  margin: 0.6em 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.68em;
+  background: var(--parchment);
+  color: var(--indigo-deep);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 0 0 3px var(--zari);
+}
+
+.reveal table th {
+  background: var(--indigo-soft);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.55em 0.9em;
+  border: none;
+}
+
+.reveal table td {
+  padding: 0.5em 0.9em;
+  text-align: left;
+  border: none;
+  border-top: 1px solid rgba(20, 24, 64, 0.15);
+  line-height: 1.35;
+}
+
+.reveal table td strong {
+  color: var(--kumkum);
+}
+
+.reveal table td em {
+  color: var(--indigo-soft);
+}
+
+.reveal table tr:nth-child(even) td {
+  background: rgba(217, 166, 46, 0.14);
+}
+
+/* ---------- Grid of "term" cards (use with <div class="cards">) ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7em;
+  margin: 0.6em 0;
+}
+
+.cards .card {
+  padding: 0.7em 1em;
+  background: rgba(247, 240, 222, 0.07);
+  border-top: 4px solid var(--accent);
+  border-radius: 0 0 10px 10px;
+  font-size: 0.78em;
+  line-height: 1.35;
+}
+
+.cards .card.hl {
+  background: var(--accent-soft);
+  border: 2px solid var(--accent);
+}
+
+.cards .card .term {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ---------- Big statement slide ---------- */
+.reveal .statement {
+  font-family: var(--font-display);
+  font-size: 1.5em;
+  line-height: 1.3;
+  max-width: 18em;
+  color: var(--cream);
+}
+
+.reveal .formula {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.3em;
+  padding: 0.35em 0.9em;
+  border: 2px solid var(--zari);
+  border-radius: 10px;
+  color: var(--turmeric);
+  background: rgba(217, 166, 46, 0.1);
+}
+
+/* ---------- Code, links, controls ---------- */
+.reveal code {
+  font-size: 0.85em;
+  background: rgba(247, 240, 222, 0.1);
+  color: var(--turmeric);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+}
+
+.reveal a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--zari);
+}
+
+.reveal .controls {
+  color: var(--turmeric);
+  bottom: 28px;
+}
+
+.reveal .progress {
+  height: 4px;
+  color: var(--turmeric);
+  bottom: 16px;
+  background: transparent;
+}
+
+.reveal .slide-number {
+  bottom: 26px;
+  right: 18px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+/* ---------- Accessibility ---------- */
+.reveal a:focus-visible,
+.reveal .controls button:focus-visible {
+  outline: 3px solid var(--turmeric);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Narrow viewports: stack the meaning-shift boxes */
+@media (max-width: 700px) {
+  .shift {
+    flex-direction: column;
+  }
+
+  .shift .arrow {
+    transform: rotate(90deg);
+    margin: 0.6em auto;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   v2 overrides: force light text (Obsidian's own colours were leaking in)
+   and centre-align all slide content
+   ========================================================================== */
+
+.reveal,
+.reveal .slides,
+.reveal .slides section,
+.reveal .slides section p,
+.reveal .slides section li,
+.reveal .slides section span,
+.reveal .slides section div,
+.reveal .slides section blockquote,
+.reveal .slides section small {
+  color: var(--cream) !important;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: var(--cream) !important;
+}
+
+.reveal section.section-slide h1 {
+  color: var(--accent) !important;
+}
+
+.reveal .word,
+.reveal .shift .to b,
+.reveal .cards .card .term,
+.reveal .tag,
+.reveal .formula,
+.reveal strong,
+.reveal code,
+.reveal .script-line,
+.reveal li::marker {
+  color: var(--accent) !important;
+}
+
+.reveal strong,
+.reveal .formula,
+.reveal code,
+.reveal .script-line {
+  color: var(--turmeric) !important;
+}
+
+.reveal .translit,
+.reveal em {
+  color: var(--parchment) !important;
+}
+
+.reveal small,
+.reveal .small,
+.reveal .byline,
+.reveal .shift .from b {
+  color: var(--muted) !important;
+}
+
+.reveal .skt-text {
+  color: var(--turmeric) !important;
+}
+
+.reveal .kan-text {
+  color: var(--kumkum-light) !important;
+}
+
+.reveal .eng-text {
+  color: var(--peacock) !important;
+}
+
+/* Table text sits on parchment, so it stays dark */
+.reveal table td,
+.reveal table td span,
+.reveal table td em {
+  color: var(--indigo-deep) !important;
+}
+
+.reveal table td strong {
+  color: var(--kumkum) !important;
+}
+
+.reveal table th {
+  color: var(--cream) !important;
+}
+
+/* ---------- Centre everything ---------- */
+.reveal .slides,
+.reveal .slides section {
+  text-align: center;
+}
+
+.reveal p,
+.reveal li,
+.reveal .statement,
+.reveal .subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal ul,
+.reveal ol {
+  list-style-position: inside;
+  margin: 0.6em auto;
+  padding: 0;
+  display: block;
+}
+
+.reveal section.title-slide .subtitle {
+  border-left: none;
+  padding-left: 0;
+  border-top: 4px solid var(--kumkum);
+  padding-top: 0.7em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal blockquote {
+  max-width: 26em;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: none;
+  border-bottom: 4px solid var(--accent);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.shift {
+  justify-content: center;
+  text-align: left;
+}
+
+.shift .from,
+.shift .to {
+  text-align: center;
+}
+
+.shift .from {
+  border-left: none;
+  border-top: 5px solid var(--muted);
+}
+
+.cards {
+  max-width: 26em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cards .card {
+  text-align: center;
+}
+
+.reveal table {
+  width: auto;
+  min-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: center;
+}
+
+/* ==========================================================================
+   v3 additions: image slots, story helpers, highlight animations
+   ========================================================================== */
+
+/* ---------- Image slots ----------
+   Default: a dashed placeholder. Swap it for  ![[yourfile.png]]  and the
+   image picks up the gold frame below. */
+.pic-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 20em;
+  height: 4.2em;
+  margin: 0.6em auto 0 auto;
+  border: 2px dashed var(--accent);
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--muted) !important;
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+.reveal section img,
+.reveal img.pic {
+  display: block;
+  max-height: 210px;
+  max-width: 70%;
+  margin: 0.5em auto 0 auto;
+  border: 3px solid var(--zari);
+  border-radius: 12px;
+  box-shadow: 0 0 0 3px var(--indigo-deep), 0 8px 24px rgba(0, 0, 0, 0.45);
+  object-fit: cover;
+  background: none;
+}
+
+.reveal .pic-big .pic-slot {
+  height: 7em;
+  max-width: 26em;
+}
+
+.reveal .pic-big img {
+  max-height: 300px;
+}
+
+/* ---------- Example slides: slightly smaller headword to leave room for an image ---------- */
+.reveal section.ex .word {
+  font-size: 3em;
+}
+
+.reveal section.ex .translit {
+  margin-bottom: 0.5em;
+}
+
+.reveal .quote {
+  max-width: 26em;
+  margin: 0.4em auto;
+  padding: 0.5em 1em;
+  background: rgba(247, 240, 222, 0.06);
+  border-bottom: 4px solid var(--accent);
+  border-radius: 10px;
+  font-size: 0.78em;
+  line-height: 1.4;
+}
+
+/* ---------- Story helpers ---------- */
+.reveal .kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95em;
+  color: var(--parchment) !important;
+  margin: 0 auto 0.8em auto;
+}
+
+.reveal .big-line {
+  font-family: var(--font-display);
+  font-size: 1.7em;
+  line-height: 1.25;
+  max-width: 16em;
+  margin: 0 auto 0.5em auto;
+}
+
+.reveal .versus {
+  font-family: var(--font-display);
+  font-size: 1em;
+  color: var(--muted) !important;
+  align-self: center;
+}
+
+.reveal section.sub-slide .big-line {
+  font-size: 1.9em;
+}
+
+/* ---------- Cards: normal → focus (highlight + animation) ---------- */
+.cards .card {
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+/* On the focus slide, every card except the highlighted one steps back */
+.cards.focus .card:not(.hl) {
+  opacity: 0.28;
+  transform: scale(0.96);
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(242, 176, 30, 0.0), 0 0 18px 2px rgba(242, 176, 30, 0.35);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(242, 176, 30, 0.18), 0 0 34px 8px rgba(242, 176, 30, 0.6);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    transform: scale(0.9) translateY(14px);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: scale(1.06) translateY(0);
+    opacity: 1;
+  }
+}
+
+.reveal section.present .cards.focus .card.hl {
+  transform: scale(1.06);
+  animation: rise-in 0.8s ease-out both, glow-pulse 2.4s ease-in-out 0.8s infinite;
+}
+
+/* A highlighted card that arrives as a fragment (used on the lakṣaṇā slide) */
+.reveal .cards .card.fragment.visible.hl {
+  animation: glow-pulse 2.4s ease-in-out infinite;
+}
+
+/* Compact, top-pinned version of a highlighted card (follow-up slide) */
+.cards.single {
+  grid-template-columns: 1fr;
+  max-width: 20em;
+}
+
+.cards.single .card {
+  transform: none;
+}
+
+.reveal section.present .cards.single .card.hl {
+  animation: glow-pulse 2.4s ease-in-out infinite;
+}
+
+/* ---------- Extra fragment animation: a line that draws its own underline ---------- */
+@keyframes underline-draw {
+  from {
+    background-size: 0% 3px;
+  }
+
+  to {
+    background-size: 100% 3px;
+  }
+}
+
+.reveal .fragment.underline-in {
+  opacity: 1;
+  visibility: visible;
+  background: linear-gradient(var(--accent), var(--accent)) no-repeat left bottom / 0% 3px;
+}
+
+.reveal .fragment.underline-in.visible {
+  animation: underline-draw 0.9s ease-out forwards;
+}
+
+.reveal .fragment.underline-in:not(.visible) {
+  opacity: 0.5;
+}
+
+.reveal .statement {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/bhashavijnana.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+    <link rel="stylesheet" href="bhashavijnana.css" />
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="title-slide drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<p class="script-line">भाषाविज्ञान · ಭಾಷಾವಿಜ್ಞಾನ</p>
+
+# Artha-Vistāra
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="transform: rotate(-3deg); position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+<img src="https://tech.arunkumarn.in/assets/image/favicon.png" alt="" style="object-fit: scale-down">
+
+</div>
+
+<div class="has-light-background fadeIn slower" style="background-color: #ffaa0000; position: absolute; left: 50%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+
+## Arun kumar N
+P14UC26S134008  
+**भाषाविज्ञान** 
+  
+**Department of Sankhya & Yoga**  
+Karnataka Sanskrit University  
+*Bengaluru - 560018*
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng" >Our story starts with a word you used today</span>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng">Our story starts with a word you used today</span>
+
+<img src="casestudy/attachments/google.png" alt="" style="object-fit: scale-down">
+</div>
+
+<aside class="notes"><p>If you are browsing or searching internet in windows system, you may be probably using bing search engine, but usually we say google it for searching content in internet.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="ex lang-eng drop" .slide:="true" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng" >Our story starts with a word you used today</span> 
+
+<div class="word eng">to google</div>
+
+<p class="translit">"I'll just google it."</p>
+
+
+<img src="casestudy/attachments/google.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="ex lang-eng drop" .slide:="true" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng" >Our story starts with a word you used today</span> 
+
+<div class="word eng">to google</div>
+
+<p class="translit">"I'll just google it."</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>Searching the internet with the Google search engine</div>
+<div class="arrow fragment"></div>
+<div class="to "><b> &nbsp </b>Searching the internet, with any tool at all</div>
+</div>
+
+<img src="casestudy/attachments/google.png" alt="" style="object-fit: scale-down">
+</div>
+
+<aside class="notes"><p>Start with something everyone does daily. Google was one company&#39;s search engine. Today people say &quot;google it&quot; while using Bing, DuckDuckGo or a phone assistant. Ask the audience: when did you last say it without thinking of the company? That unnoticed widening is exactly what the rest of the talk is about.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-eng drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng">But wait</span>
+
+<p class="big-line">Google was not the first search engine people used.</p>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-eng drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng">But wait</span>
+
+<p class="big-line">Google was not the first search engine people used.</p>
+
+<div class="cards">
+<div class="card"><span class="term">Yahoo</span>A huge name in 1990s web search, but no one says "yahoo it".</div>
+<div class="card fragment zoom-in hl"><span class="term">Google</span>Same job, same internet, and only this name became a verb.</div>
+</div>
+</div>
+
+<aside class="notes"><p>Yahoo and AltaVista were everyday names before Google. Yet only one brand widened into a general verb. Possible reasons people offer: a short, easy-to-say name, it fitted naturally as a verb, and it became the engine people used most. These are suggestions, not settled facts. Invite the room to guess before offering them. The lesson is that widening is not guaranteed. A word has to be used so often that speakers stop seeing the boundary.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<p class="big-line">How a word's meaning grows wider than its first home.</p>
+</div>
+
+<aside class="notes"><p>The subtitle gets its own slide so the audience hears the promise before the story starts. Say it slowly.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<p class="big-line">This has a name in Bhāṣāvijñāna.</p>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<p class="big-line">This has a name in Bhāṣāvijñāna.</p>
+
+<span class="formula fragment grow">artha-vistāra · अर्थ-विस्तार</span>
+
+<p class="kicker fragment fade-up" style="margin-top:1em">And our languages have been doing it for thousands of years.</p>
+</div>
+
+<aside class="notes"><p>The turn. Names the phenomenon, then promises older, deeper examples from Sanskrit and Kannada.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-skt drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Where does meaning sit in the study of language?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-skt drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Where does meaning sit in the study of language?
+
+<div class="cards">
+<div class="card"><span class="term">Dhvani-vijñāna</span>Phonology: the sounds of a language</div>
+<div class="card"><span class="term">Rūpa-vijñāna</span>Morphology: how words are built</div>
+<div class="card"><span class="term">Vākya-vijñāna</span>Syntax: how words form sentences</div>
+<div class="card"><span class="term">Artha-vijñāna</span>Semantics: what words mean</div>
+</div>
+</div>
+
+<aside class="notes"><p>Slide one of three. All four branches stand equal. The next slide singles one out.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-skt drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Where does meaning sit in the study of language?
+
+<div class="cards focus">
+<div class="card"><span class="term">Dhvani-vijñāna</span>Phonology: the sounds of a language</div>
+<div class="card"><span class="term">Rūpa-vijñāna</span>Morphology: how words are built</div>
+<div class="card"><span class="term">Vākya-vijñāna</span>Syntax: how words form sentences</div>
+<div class="card hl"><span class="term">Artha-vijñāna</span>Semantics: what words mean</div>
+</div>
+</div>
+
+<aside class="notes"><p>Slide two of three. Same cards, but artha-vijñāna lifts and glows while the others fade. Say: this is where we spend today.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-skt drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="cards single">
+<div class="card hl"><span class="term">Artha-vijñāna</span>Semantics: what words mean</div>
+</div>
+
+<p class="statement fragment fade-up">Semantics asks what a word means.</p>
+
+<p class="statement fragment fade-up">And, more interestingly, how that meaning <span class="fragment underline-in">changes over time</span>.</p>
+
+<p class="kicker fragment fade-up">Meaning is not fixed. It travels.</p>
+</div>
+
+<aside class="notes"><p>Slide three of three. The card now sits on top as a reminder while the extra text arrives one line at a time. Pause on the underline.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Three ways a meaning can travel
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Three ways a meaning can travel
+
+| Direction | Term | 
+|---|---|
+| Wider | **Artha-vistāra** | 
+| Narrower | **Artha-saṅkoca** | 
+| Shifted | **Artha-ādeśa** |
+</div>
+
+<aside class="notes"><p>Quick map before we go deep. We follow only the first row today. Keep this slide brisk.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="title-slide drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<p class="script-line">भाषाविज्ञान · ಭಾಷಾವಿಜ್ಞಾನ</p>
+
+# Artha-Vistāra
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<p class="big-line">viśeṣa → sāmānya</p>
+
+<p class="kicker fragment fade-up">from the specific to the general</p>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<p class="big-line">viśeṣa → sāmānya</p>
+
+<p class="kicker">from the specific to the general</p>
+
+<p class="statement fragment fade-up">A word starts with one <strong>particular</strong> thing.</p>
+
+<p class="statement fragment fade-up">Speakers slowly stretch it over the whole <strong>class</strong>.</p>
+
+<p class="statement fragment fade-up">The old sense fades. Only the wide one is felt.</p>
+</div>
+
+<aside class="notes"><p>The definition, told as three beats. Google gave the audience the feeling. This slide gives the formula.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-skt drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## How does the stretch happen?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="lang-skt drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## How does the stretch happen?
+
+<p class="statement fragment fade-up">First a speaker stretches the word by <strong>lakṣaṇā.</strong></p>
+
+<p class="statement fragment fade-up">Others copy. The stretch becomes habit (<strong>rūḍhi</strong>).</p>
+
+<p class="statement fragment fade-up">Then the wide sense is the primary one.</p>
+</div>
+
+<aside class="notes"><p>Lakṣaṇā comes from Indian poetics. It explains neatly how a word is first stretched. Tie back to Google: someone said &quot;google it&quot; meaning any search, others copied, and now it is rūḍhi.</p>
+</aside></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="section-slide lang-skt drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Three examples that outgrew their origins
+
+<p class="kicker">Our oldest storytellers.</p>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-skt drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag skt">Sanskrit / संस्कृतम्</span>
+
+<div class="word skt">तैल</div>
+
+<p class="translit">taila</p>
+
+<div class="shift">
+<div class="from fragment" ><b>Origin</b>Oil pressed from <em>tila</em>, the sesame seed</div>
+<div class="arrow fragment"></div>
+<div class="to "><b>&nbsp</b>Any oil, from any source</div>
+</div>
+
+<div class="quote fragment">सर्षप-तैलम् (sarṣapa-tailam): mustard oil<br>नारिकेल-तैलम् (nārikela-tailam): coconut oil</div>
+</div>
+
+<aside class="notes"><p>Tila is sesame. Taila literally means &quot;of tila&quot;, the oil of sesame. But in the Sanskrit compounds mustard oil and coconut oil, nothing is sesame. The word started as one oil and became the word for oil. This is the cleanest classical example of artha-vistāra.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-skt drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag skt">Sanskrit / संस्कृतम्</span>
+
+<div class="word skt">प्रवीण</div>
+
+<p class="translit">pravīṇa</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>Someone skilled at playing the <em>vīṇā</em></div>
+<div class="arrow fragment"></div>
+<div class="to "><b> &nbsp </b>An expert in any field at all</div>
+</div>
+
+<div class="quote fragment"> <br>The word now names mastery itself.</div>
+</div>
+
+<aside class="notes"><p>Traditional etymology from pra + vīṇā: one who is advanced on the vīṇā. Today we call a surgeon, a chess player or a carpenter pravīṇa. Ask: when did anyone last think of a vīṇā when hearing this word? The origin vanished once the meaning widened.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-skt drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag skt">Sanskrit / संस्कृतम्</span>
+
+<div class="word skt">गोष्ठी</div>
+
+<p class="translit">goṣṭhī</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>A cow-shed, where the cattle stand together</div>
+<div class="arrow fragment"></div>
+<div class="to "><b>&nbsp</b>Any gathering for talk: an assembly, a seminar, a conference session</div>
+</div>
+
+<div class="quote fragment">Kannada ಗೋಷ್ಠಿ (gōṣṭhi) names a session at a literary or academic conference.</div>
+</div>
+
+<aside class="notes"><p>The picture here is of people sitting together, which the cow-pen already suggested. From a physical place where cattle gather, the word moves to people gathering to talk. Today a ಗೋಷ್ಠಿ at a Kannada conference has no cows in it. Point out the chain: place, then gathering, then a scheduled session. The widening happened in steps.</p>
+</aside></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-kan drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag kan">Kannada / ಕನ್ನಡ</span>
+
+<div class="word kan">ಎಣ್ಣೆ</div>
+
+<p class="translit">eṇṇe</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>Oil from <em>ಎಳ್ಳು (eḷḷu)</em>, sesame</div>
+<div class="arrow fragment"></div>
+<div class="to "><b>&nbsp</b>Any oil or fat</div>
+</div>
+
+<div class="quote fragment">ತೆಂಗಿನ ಎಣ್ಣೆ (teṅgina eṇṇe): coconut oil<br>ಸೀಮೆಎಣ್ಣೆ (sīme-eṇṇe): kerosene, literally "foreign oil"</div>
+</div>
+
+<aside class="notes"><p>A different language family, the same story as taila. Eḷḷu is sesame and eṇṇe is its oil. Kerosene is not even a plant product, yet Kannada calls it &quot;foreign oil&quot; with the same word. Stress that Sanskrit and Kannada did this independently.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-kan drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag kan">Kannada / ಕನ್ನಡ</span>
+
+<div class="word kan">ಹಣ</div>
+
+<p class="translit">haṇa</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>Sanskrit <em>paṇa</em>, one particular coin or stake</div>
+<div class="arrow fragment"></div>
+<div class="to "><b>&nbsp</b>Money in general</div>
+</div>
+
+<div class="quote fragment"><br>ಹಣ-ಕಾಸು (haṇa-kāsu): money and funds</div>
+</div>
+
+<aside class="notes"><p>Here a word crosses languages and widens on the way. Paṇa in Sanskrit was a specific unit. Kannada takes it, changes pa to ha, and uses it for money of any kind, including a UPI payment that involves no coin at all.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-kan drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag kan">Kannada / ಕನ್ನಡ</span>
+
+<div class="word kan">ಗಾಡಿ</div>
+
+<p class="translit">gāḍi</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>A cart pulled by animals</div>
+<div class="arrow fragment"></div>
+<div class="to "><b>&nbsp</b>Any vehicle: bike, car, scooter, lorry</div>
+</div>
+
+<div class="quote fragment">ಗಾಡಿ ತಗೊಂಡು ಬಾ <br>"bring the vehicle"</div>
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-eng drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng">English</span>
+
+<div class="word eng">journey</div>
+
+<p class="translit">from Old French jornee, from Latin diurnus ("of a day")</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>The distance covered in one day</div>
+<div class="arrow fragment"></div>
+<div class="to "><b>&nbsp</b>A trip of any length, even an inner one</div>
+</div>
+
+<div class="quote fragment"><br>"Her journey through grief" has no days to count at all.</div>
+</div>
+
+<aside class="notes"><p>The same root gives &quot;journal&quot;, a daily record, and &quot;jour&quot; in French. A journey was a single day&#39;s travel. Now a journey can last years, or have no road at all.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="ex lang-eng drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<span class="tag eng">English</span>
+
+<div class="word eng">companion</div>
+
+<p class="translit">from Latin com + panis: "with" + "bread"</p>
+
+<div class="shift">
+<div class="from fragment"><b>Origin</b>One with whom you share bread</div>
+<div class="arrow fragment"></div>
+<div class="to "><b>&nbsp</b>Anyone who accompanies you</div>
+</div>
+
+<div class="quote fragment">A travel companion, a companion app, a companion volume <br> the bread is long gone.</div>
+</div>
+
+<aside class="notes"><p>Panis is bread, so a companion was a person you ate with. Link to India: sharing a meal still marks closeness. Now the word covers a pet, an app and a book.</p>
+</aside></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="lang-eng drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Three languages, one pattern
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="lang-eng drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Three languages, one pattern
+
+| Language | Word | Particular origin | General sense today |
+|---|---|---|---|
+| Sanskrit | तैल *taila* | Sesame oil | Any oil |
+| Kannada | ಎಣ್ಣೆ *eṇṇe* | Sesame oil | Any oil |
+| English | oil | Olive oil (Latin *oleum*, Greek *elaion*) | Any oil |
+
+
+<p class="kicker fragment">Different plants, different language families, the same step from <strong>viśeṣa</strong> to <strong>sāmānya</strong>.</p>
+</div>
+
+<aside class="notes"><p>The payoff slide. Sanskrit (Indo-Aryan), Kannada (Dravidian) and English (Germanic with Latin and Greek) took independent paths and arrived at the same place. Ask: which one did you expect to differ?</p>
+</aside></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Back to where we began
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Back to where we began
+
+<p class="big-line fragment fade-up">Someone just said "google it".</p>
+
+<p class="big-line fragment fade-up">A seed became oil. </p>
+<p class="big-line fragment fade-up">A coin became money. </p>
+<p class="big-line fragment fade-up">A cart became any vehicle.</p>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="sub-slide drop" data-auto-animate="true" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Back to where we began
+
+<p class="big-line ">Someone just said "google it".</p>
+
+<p class="big-line">A seed became oil. </p>
+<p class="big-line ">A coin became money. </p>
+<p class="big-line ">A cart became any vehicle.</p>
+
+<span class="formula fragment grow">viśeṣa → sāmānya</span>
+
+<p class="kicker fragment fade-up" style="margin-top:1em"><strong>Try this:</strong> pick three words you use today and look up their first sense. Which have widened?</p>
+</div>
+
+<aside class="notes"><p>Close the loop with Google. The same process that made a search engine into a verb made sesame into oil thousands of years ago. Leave the exercise on screen during questions.</p>
+</aside></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 675px; width: 1200px; min-height: 675px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Thank You
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+	      RevealPointer,
+		  RevealChalkboard, 
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":1200,"height":675,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"center":true,"transition":"fade","transitionSpeed":"fast"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
